@@ -35,7 +35,6 @@ class User < ActiveRecord::Base
   end
 
   def unfollow!(other_user)
-    #relationships.find_by_followed_id(other_user.id).destroy
     $redis.multi do
       $redis.srem(self.redis_key(:following), other_user.id)
       $redis.srem(user.redis_key(:followers), self.id)
