@@ -1,0 +1,10 @@
+== README
+
+This is the sample rails project similar to the twitter that uses redis key value store
+to map the relationships between users (e.g. followers, following).
+
+rake db:populate can be used to populate the users.
+
+There are 2 ways of testing the performance using SQL or redis:
+
+  the logic for relationships is defined in the User model, so the methods can be written the normal rails way talking with db through Relashionship model or the easy way through redis.
